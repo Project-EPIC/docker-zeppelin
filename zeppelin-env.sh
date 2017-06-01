@@ -14,9 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export MASTER="spark://spark-master:7077"
+export MASTER="local[*]"
 export SPARK_HOME=/opt/spark
-export SPARK_SUBMIT_OPTIONS="--packages com.datastax.spark:spark-cassandra-connector_2.10:1.5.2"
 export ZEPPELIN_JAVA_OPTS="-Dspark.jars=/opt/spark/lib/gcs-connector-latest-hadoop2.jar"
 # TODO(zmerlynn): Setting global CLASSPATH *should* be unnecessary,
 # but ZEPPELIN_JAVA_OPTS isn't enough here. :(

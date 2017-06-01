@@ -17,6 +17,8 @@
 
 FROM gcr.io/google_containers/spark-base:latest
 
+LABEL maintainer "gerard.casassaez@colorado.edu"
+
 ENV ZEPPELIN_VER  0.7.1
 
 RUN mkdir -p /opt && \
@@ -28,10 +30,13 @@ RUN mkdir -p /opt && \
 
 ADD zeppelin-log4j.properties /opt/zeppelin/conf/log4j.properties
 ADD zeppelin-env.sh /opt/zeppelin/conf/zeppelin-env.sh
-ADD interpreter.json /opt/zeppelin/conf/interpreter.json
 ADD docker-zeppelin.sh /opt/zeppelin/bin/docker-zeppelin.sh
 
 
 VOLUME /opt/zeppelin/notebook/
+RUN mkdir /data
+VOLUME /data
+VOLUME /home
 EXPOSE 8080
+EXPOSE 4040
 ENTRYPOINT ["/opt/zeppelin/bin/docker-zeppelin.sh"]
