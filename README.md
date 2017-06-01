@@ -24,3 +24,11 @@ This runs on detached mode, setting spark master url, the zeppelin port and expo
 - `/home`
 
 Check out this docker cheatsheet to add volumes or ports: [https://github.com/wsargent/docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet)
+
+
+## Build
+
+To mantain this image, you can run:
+
+- `make build`: This builds the image in the TAG set in the `Makefile`
+- `make push`: Builds and pushes image to Docker Hub (you will need to login to DockerHub on your machine before running this)
